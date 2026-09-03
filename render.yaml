@@ -14,6 +14,8 @@ envVarGroups:
     envVars:
       - key: LINJIAN_TOKEN
         generateValue: true
+      - key: MCP_ACCESS_TOKEN
+        generateValue: true
       - key: LINJIAN_DEFAULT_DEVICE
         value: android-phone
 

@@ -1,10 +1,12 @@
 # MCP 工具清单（v0.3.8.4-public）
 
-掌心窗 MCP 服务把手机端能力暴露给支持 MCP 的客户端。所有工具都需要你自己的 `LINJIAN_TOKEN`，并且手机端需要保持服务启动。公开版工具只保留通用能力，不包含私人绑定接口、私人 Token、私人服务地址或固定私人关系。
+掌心窗 MCP 服务把手机端能力暴露给支持 MCP 的客户端。MCP 客户端必须使用独立的 `MCP_ACCESS_TOKEN` 通过 Bearer 认证；MCP 服务再使用 `LINJIAN_TOKEN` 访问手机后端。手机端需要保持服务启动。公开版工具只保留通用能力，不包含私人绑定接口、私人 Token、私人服务地址或固定私人关系。
 
 ## 连接方式
 
 MCP 服务默认监听 `PORT` 环境变量，未设置时使用 `8787`。
+
+客户端连接 `/mcp`、`/sse` 或 `/messages` 时必须携带 `Authorization: Bearer <MCP_ACCESS_TOKEN>`。`/health` 仅返回非敏感运行状态，不返回后端地址或凭据。
 
 常用地址：
 

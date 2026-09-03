@@ -21,13 +21,13 @@
 - `zhangxinchuang-server`
 - `zhangxinchuang-mcp`
 
-两个服务共用同一个自动生成的 `LINJIAN_TOKEN`。部署完成后：
+两个服务共用同一个自动生成的 `LINJIAN_TOKEN`，MCP 入口另用自动生成的 `MCP_ACCESS_TOKEN` 做客户端认证。部署完成后：
 
 1. server 访问 `/health`，确认后端在线。
 2. mcp 访问 `/health`，确认 `has_url` 和 `has_token` 为 true。
 3. Android 设置页填写 server 公网地址、同一个 Token、设备 ID。
 4. MCP 的 `LINJIAN_URL` 会自动引用 server 的公网 `RENDER_EXTERNAL_URL`，Render 一键部署不需要手动填写；旧部署只重新部署 MCP 时，新版 MCP 也会把旧的 Render 内网 `hostport` 自动兜底为公网地址。
-4. MCP 客户端填写 mcp 的 `/mcp` 或 `/sse` 地址。
+5. MCP 客户端填写 mcp 的 `/mcp` 或 `/sse` 地址，并发送 `Authorization: Bearer <MCP_ACCESS_TOKEN>`。
 
 ## 3. Railway 手动双服务部署
 
